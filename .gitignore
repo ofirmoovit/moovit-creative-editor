@@ -1,0 +1,30 @@
+# Environment variables
+.env
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+logs/
+error/
+
+# Build artifacts
+dist/
+build/ 
+
+# No
+backup&images/
+Free Text Project - Internal/
+templates/
+tags/
+fonts/
+index-tag.html
