@@ -38,7 +38,7 @@
       <select id="stickySubType">
         <option value="static" selected>Static Image</option>
         <option value="free">Free Text</option>
-        <option value="thirdParty">Third Party Tag</option>
+        <option value="thirdParty">Third Party Tag (Beta)</option>
       </select>
     </div>
 
@@ -57,7 +57,7 @@
       <select id="mrecSubType">
         <option value="static" selected>Static Image</option>
         <option value="free">Free Text</option>
-        <option value="thirdParty">Third Party Tag</option>
+        <option value="thirdParty">Third Party Tag (Beta)</option>
       </select>
     </div>
 
@@ -558,7 +558,7 @@
       position: absolute;
       left:0; top:695px;
       width:390px; height:61px;
-      background: var(--bg-color, #18191b);
+      background: var(--bg-color, white);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1269,7 +1269,8 @@
                       const imgElem = doc.querySelector(".banner-icon .img-container img");
                       if (imgElem) { imgElem.src = e.target.result; }
                     } else {
-                      const imgElem = doc.querySelector(".sticky-banner .logo img");
+                      // Fixed selector for arrow variant to correctly find the logo image element
+                      const imgElem = doc.querySelector(".banner-icon .img-container img");
                       if (imgElem) { imgElem.src = e.target.result; }
                     }
                   } else {
