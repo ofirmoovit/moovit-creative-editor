@@ -293,6 +293,30 @@
           noLogoWrapper.style.display = "none";
           noLogoCheckbox.checked = false; // Reset checkbox state
 
+          // Check if it's a third-party tag variant
+          const isThirdPartyTag = (type === "sticky" && stickySubTypeSelect.value === "thirdParty") || 
+                                  (type === "mrec" && mrecSubTypeSelect.value === "thirdParty");
+          
+          // Disable Europe Ad Badge for third-party tags
+          const europeAdBadgeCheckbox = document.getElementById("europeAdBadgeCheckbox");
+          if (isThirdPartyTag) {
+            // Save previous state to restore later if needed
+            if (!europeAdBadgeCheckbox.hasAttribute("data-previous-state")) {
+              europeAdBadgeCheckbox.setAttribute("data-previous-state", europeAdBadgeCheckbox.checked);
+            }
+            europeAdBadgeCheckbox.checked = false;
+            europeAdBadgeCheckbox.disabled = true;
+            badgeWrapper.style.opacity = "0.5";
+          } else {
+            // Restore previous state if available
+            if (europeAdBadgeCheckbox.hasAttribute("data-previous-state")) {
+              europeAdBadgeCheckbox.checked = europeAdBadgeCheckbox.getAttribute("data-previous-state") === "true";
+              europeAdBadgeCheckbox.removeAttribute("data-previous-state");
+            }
+            europeAdBadgeCheckbox.disabled = false;
+            badgeWrapper.style.opacity = "1";
+          }
+
           if (type === "pin") {
             badgeWrapper.style.display = "none";
           } else {
